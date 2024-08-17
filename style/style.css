@@ -15,14 +15,16 @@
 body {
     font-family: "Quicksand", sans-serif;
     font-optical-sizing: auto;
-    position: relative;
+    height: 100%;
+    overflow: hidden;
+    height: 100vh;
 }
 
 /* Seccion principal */
 
 header {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-image: url("/img/imagen-portada.jpg");
     background-size: auto;
     background-position: center;
@@ -30,13 +32,26 @@ header {
 }
 
 .header-nav {
-    width: 100vw;
+    width: 100%;
     display: flex;
     background-color: var(--first-color-green);
     height: 70px;
     justify-content: space-between;
     position: relative;
     z-index: 1;
+}
+
+#header-nav--title-p {
+    position: fixed;
+    top: 16px;
+    left: 82px;
+}
+
+.logo-hamburguesa {
+    position: relative;
+    font-size: 45px;
+    margin-top: 11px;
+    margin-left: 515px;
 }
 
 .header-nav--title {
@@ -51,7 +66,7 @@ header {
 
 .header-nav--title a {
     color: #ffff;
-    font-size: 40px;
+    font-size: 30px;
     border: 2px solid #ffff;
     border-radius: 100px;
     padding: 0px 7px;
@@ -74,6 +89,10 @@ header {
     padding: 7px;
 }
 
+.hamburguesa-header-nav {
+    display: none;
+}
+
 .header-section1 {
     position: absolute;
     top: 0;
@@ -89,13 +108,16 @@ header {
     background-color: hsla(0, 0%, 100%, 0.553);
 }
 
+.header-section1--content {
+    margin-left: 5vw;
+}
+
 .header-section1--title {
     gap: 0.5rem;
-    margin-left: 50px;
 }
 
 .header-section1--title h1 {
-    font-size: 60px;
+    font-size: 8vh;
     justify-content: center;
     padding-bottom: 5px;
     color: var(--second-color-brown);
@@ -103,30 +125,31 @@ header {
 }
 
 .header-section1--title p {
-    font-size: 25px;
+    font-size: 4.5vh;
     font-weight: bold;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 }
 
 .header-section1--links {
     justify-content: left;
-    margin-right: 325px;
 }
 
 .header-section1--links a {
     text-decoration: none;
     color: var(--third-color-darker-green);
-    font-size: 25px;
+    font-size: 4vh;
     font-weight: bold;
+    border-radius: 8px;
     gap: 1rem;
+    color: #ffff;
 }
 
 .header-section1--links a i {
-    font-size: 30px;
+    font-size: 5vh;
 }
 
 #bxl-whatsapp {
-    border: 3px var(--third-color-darker-green) solid;
+    background-color:  var(--third-color-darker-green);
     padding: 8px;
     margin-right: 5px;
 }
@@ -137,4 +160,115 @@ header {
     width: 100%;
 }
 
-/* siguientes secciones *
+/* siguientes secciones */
+
+/* Media Queries */
+
+@media (max-width: 899px) {
+    .header-nav--title {
+        font-size: 27px;
+        margin: 0;
+        padding: 25px;
+    }
+
+    #header-nav--title-p {
+        top: 0px;
+    }
+
+    .header-nav--title p {
+        margin-top: 16px;
+        margin-bottom: 1rem;
+    }
+
+    .header-nav--links  {
+        display: none;
+    }
+
+    .header-nav--title a {
+        color: #ffff;
+        font-size: 20px;
+        border: 2px solid #ffff;
+        border-radius: 100px;
+        padding: 0px 7px;
+    }
+
+    .hamburguesa-header-nav{
+        display: flex;
+        justify-content: end;
+        position: fixed;
+        right: 0;
+    }
+
+    .hamburguesa-header-nav--links {
+        z-index: 1;
+        position: fixed;
+        display: flex; 
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center;
+        height: 100vh;
+        width: 100vw; 
+        background:-webkit-linear-gradient(90deg, hsla(90, 7%, 77%, 0.771),hsla(17, 47%, 27%, 0.763),hsla(0, 10%, 6%, 0.746));background: linear-gradient(90deg, hsla(90, 7%, 77%, 0.779),hsla(17, 47%, 27%, 0.73),hsla(0, 10%, 6%, 0.738));;
+        width: 448px;
+        margin-left: 112px;
+        height: 100vh;
+    }
+
+    .logo-hamburguesa {
+        z-index: 2;
+        color: white;
+    }
+
+    .hamburguesa-activado {
+        display: none;
+    }
+
+    .header-section1--content {
+        margin-left: 4vw;
+    }
+
+    .header-nav--links {
+        display: none;
+    }
+    
+    .hamburguesa-header-nav--links a {
+        text-decoration: none;
+        color: #ffff;
+        font-size: 19px;
+        font-weight: bold;
+        padding: 7px;
+    }
+
+    .header-section1--title h1 {
+        font-size: 7vh;
+    }
+
+    .header-section1--title p {
+        font-size: 4vh;
+    }
+
+}
+
+@media (max-width: 414px) {
+    .header-section1 {
+        width: 100%;
+    }
+
+    .header-section1--title h1 {
+        font-size: 6vh;
+    }
+
+    .header-section1--title p {
+        font-size: 4.2vh;
+    }
+
+    .header-section1--content {
+        margin-left: 0vw;
+        text-align: center;
+        text-wrap: wrap;
+    }
+
+    .hamburguesa-header-nav--links {
+        width: 414px;
+    }
+}
